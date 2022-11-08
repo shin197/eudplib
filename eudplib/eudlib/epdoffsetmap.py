@@ -581,5 +581,11 @@ class EPDCUnitMap(
     def is_burrowed(self):
         return self.check_status_flag(0x00000010)
 
+    def in_air(self):
+        return self.check_status_flag(0x4)
+
+    def is_invincible(self):
+        return self.check_status_flag(0x4000000)
+
     def setloc(self, location):
         f_setloc_epd(location, self._epd + 0x28 // 4)
